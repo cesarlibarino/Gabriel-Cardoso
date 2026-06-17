@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Gabriel Cardoso | Nutrição Esportiva & Performance</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Identidade Dark Carbon & Crimson Speed - Baseada no perfil e universo Crossfit do Gabriel */
+      --carbon:#12161a;
+      --carbon-dark:#0a0d0f;
+      --carbon-soft:#1a2026;
+      --crimson:#d62839;
+      --crimson-dark:#9b1c28;
+      --crimson-soft:rgba(214,40,57,0.08);
+      --gray-light:#f4f6f8;
+      --white:#ffffff;
+      --text-dark:#1e242b;
+      --text-light:#e2e8f0;
+      --muted:#64748b;
+      --line:rgba(214,40,57,0.15);
+      --shadow:0 28px 70px rgba(10,13,15,0.15);
+      --serif:'Fraunces', serif;
+      --sans:'Inter', sans-serif;
+      --transition:all .35s cubic-bezier(.25,1,.5,1);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:var(--sans);
+      background:var(--gray-light);
+      color:var(--text-dark);
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:100%;
+      max-width:1160px;
+      margin:0 auto;
+      padding:0 24px;
+    }
+
+    section{
+      position:relative;
+      padding:88px 0;
+      overflow:hidden;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      background:var(--crimson);
+      color:var(--white);
+      border:1px solid var(--crimson);
+      padding:18px 30px;
+      border-radius:999px;
+      text-transform:uppercase;
+      letter-spacing:1.1px;
+      font-size:13px;
+      font-weight:900;
+      transition:var(--transition);
+      box-shadow:0 18px 42px rgba(214,40,57,0.25);
+    }
+
+    .btn:hover{
+      transform:translateY(-4px);
+      background:var(--crimson-dark);
+      border-color:var(--crimson-dark);
+      box-shadow:0 24px 52px rgba(214,40,57,0.35);
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:var(--white);
+      border-color:rgba(255,255,255,0.25);
+      box-shadow:none;
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,0.08);
+      color:var(--white);
+      box-shadow:none;
+      border-color:var(--white);
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color:var(--crimson);
+      background:var(--crimson-soft);
+      border:1px solid rgba(214,40,57,0.2);
+      padding:11px 16px;
+      border-radius:999px;
+      text-transform:uppercase;
+      letter-spacing:2.4px;
+      font-size:10px;
+      font-weight:900;
+    }
+
+    .tag::before{
+      content:"";
+      width:7px;
+      height:7px;
+      background:var(--crimson);
+      border-radius:999px;
+    }
+
+    .tag-light{
+      color:var(--white);
+      background:rgba(255,255,255,0.08);
+      border-color:rgba(255,255,255,0.15);
+    }
+
+    .tag-light::before{
+      background:var(--crimson);
+    }
+
+    .title{
+      font-family:var(--serif);
+      color:var(--carbon-dark);
+      font-size:56px;
+      line-height:1.05;
+      letter-spacing:-1.4px;
+      font-weight:800;
+    }
+
+    .title span{
+      color:var(--crimson);
+    }
+
+    .subtitle{
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.7;
+      max-width:660px;
+    }
+
+    .card{
+      background:var(--white);
+      border:1px solid rgba(0,0,0,0.05);
+      border-radius:28px;
+      box-shadow:0 20px 55px rgba(0,0,0,0.02);
+      transition:var(--transition);
+    }
+
+    .card:hover{
+      transform:translateY(-7px);
+      box-shadow:var(--shadow);
+      border-color:rgba(214,40,57,0.2);
+    }
+
+    .blob{
+      position:absolute;
+      width:430px;
+      height:430px;
+      border-radius:999px;
+      background:rgba(214,40,57,0.08);
+      filter:blur(95px);
+      pointer-events:none;
+    }
+
+    .center{
+      text-align:center;
+      max-width:850px;
+      margin:0 auto 54px;
+    }
+
+    .center .title{
+      margin-top:20px;
+    }
+
+    .center .subtitle{
+      margin:20px auto 0;
+    }
+
+    header{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:20;
+      padding:24px 0;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .brand{
+      font-weight:900;
+      color:var(--white);
+      letter-spacing:-.5px;
+      font-size:18px;
+    }
+
+    .brand span{
+      color:var(--crimson);
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:26px;
+      font-size:13px;
+      color:rgba(255,255,255,0.7);
+      font-weight:800;
+    }
+
+    .nav-links a:hover{
+      color:var(--crimson);
+    }
+
+    .nav-cta{
+      background:var(--crimson);
+      color:white;
+      padding:12px 18px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      transition:var(--transition);
+    }
+
+    .nav-cta:hover{
+      background:var(--crimson-dark);
+    }
+
+    /* HERO EM ESTILO DARK / ATHLETIC VIBE */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding:142px 0 88px;
+      background:
+        radial-gradient(circle at 85% 25%, rgba(214,40,57,0.15), transparent 35%),
+        linear-gradient(180deg, var(--carbon-dark) 0%, var(--carbon) 100%);
+      color:var(--white);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:72px;
+      align-items:center;
+    }
+
+    .hero h1{
+      font-family:var(--sans);
+      font-size:64px;
+      line-height:1.02;
+      letter-spacing:-2px;
+      color:var(--white);
+      font-weight:900;
+      margin-top:22px;
+      max-width:760px;
+    }
+
+    .hero h1 span{
+      color:var(--crimson);
+    }
+
+    .hero p{
+      color:rgba(255,255,255,0.7);
+      font-size:18px;
+      line-height:1.7;
+      margin-top:24px;
+      max-width:640px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:34px;
+    }
+
+    .hero-proof{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:40px;
+      max-width:670px;
+    }
+
+    .proof{
+      padding:18px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:22px;
+    }
+
+    .proof strong{
+      color:var(--white);
+      display:block;
+      font-weight:900;
+      margin-bottom:6px;
+      font-size:15px;
+    }
+
+    .proof span{
+      color:rgba(255,255,255,0.5);
+      font-size:12px;
+      line-height:1.4;
+      display:block;
+    }
+
+    .portrait-wrap{
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .portrait-card{
+      position:relative;
+      width:100%;
+      max-width:420px;
+      background:var(--carbon-soft);
+      border:10px solid var(--carbon-soft);
+      border-radius:32px;
+      box-shadow:0 40px 90px rgba(0,0,0,0.4);
+      overflow:hidden;
+      z-index:3;
+    }
+
+    .portrait-card img{
+      width:100%;
+      aspect-ratio:4/5;
+      object-fit:cover;
+      object-position:center top;
+    }
+
+    .floating-card{
+      position:absolute;
+      right:-20px;
+      bottom:34px;
+      z-index:5;
+      background:var(--crimson);
+      color:white;
+      max-width:275px;
+      border-radius:28px;
+      padding:22px;
+      box-shadow:0 22px 60px rgba(214,40,57,0.3);
+    }
+
+    .floating-card strong{
+      display:block;
+      font-size:22px;
+      font-weight:900;
+      margin-bottom:6px;
+      text-transform:uppercase;
+      letter-spacing:-0.5px;
+    }
+
+    .floating-card span{
+      display:block;
+      color:rgba(255,255,255,0.85);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .pain-card{
+      padding:34px;
+    }
+
+    .pain-card h3{
+      color:var(--carbon-dark);
+      font-size:24px;
+      font-weight:800;
+      margin-bottom:14px;
+    }
+
+    .pain-card p{
+      color:var(--muted);
+      font-size:14.5px;
+      line-height:1.65;
+    }
+
+    .section-soft{
+      background:linear-gradient(180deg,var(--white),var(--gray-light));
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:74px;
+      align-items:center;
+    }
+
+    .image-box{
+      position:relative;
+      background:var(--white);
+      border-radius:34px;
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .image-box::after{
+      content:"";
+      position:absolute;
+      inset:28px -24px -24px 28px;
+      border:2px dashed rgba(214,40,57,0.2);
+      border-radius:34px;
+      z-index:-1;
+    }
+
+    .image-box img{
+      width:100%;
+      border-radius:26px;
+      aspect-ratio:4/5;
+      object-fit:cover;
+      object-position:center top;
+    }
+
+    .copy .title{
+      margin-top:20px;
+    }
+
+    .copy .subtitle{
+      margin-top:20px;
+    }
+
+    .bullets{
+      display:grid;
+      gap:14px;
+      margin-top:28px;
+    }
+
+    .bullet {
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      color:var(--text-dark);
+      font-size:15px;
+      line-height:1.55;
+      font-weight:500;
+    }
+
+    .bullet b{
+      color:var(--crimson);
+      flex-shrink:0;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+      margin-top:56px;
+    }
+
+    .step{
+      padding:28px;
+    }
+
+    .step strong{
+      color:var(--crimson);
+      font-size:38px;
+      line-height:1;
+      display:block;
+      margin-bottom:18px;
+      font-weight:900;
+    }
+
+    .step h3{
+      color:var(--carbon-dark);
+      font-size:20px;
+      margin-bottom:10px;
+      font-weight:800;
+    }
+
+    .step p{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+    }
+
+    .objection{
+      background:var(--carbon);
+      color:var(--white);
+    }
+
+    .objection .title{
+      color:var(--white);
+    }
+
+    .objection .title span{
+      color:var(--crimson);
+    }
+
+    .objection .subtitle{
+      color:rgba(255,255,255,0.6);
+    }
+
+    .objection-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+      margin-top:34px;
+    }
+
+    .objection-card{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:26px;
+      padding:26px;
+    }
+
+    .objection-card h3{
+      font-size:20px;
+      margin-bottom:10px;
+      color:var(--white);
+      font-weight:800;
+    }
+
+    .objection-card p{
+      color:rgba(255,255,255,0.5);
+      font-size:14.5px;
+      line-height:1.6;
+    }
+
+    .cta{
+      background:
+        radial-gradient(circle at 50% 0%, rgba(214,40,57,0.1), transparent 35%),
+        linear-gradient(180deg, var(--gray-light) 0%, var(--white) 100%);
+    }
+
+    .cta-box{
+      max-width:920px;
+      margin:0 auto;
+      background:var(--carbon-dark);
+      border-radius:38px;
+      padding:60px 38px;
+      box-shadow:0 40px 90px rgba(0,0,0,0.25);
+      text-align:center;
+      color:var(--white);
+    }
+
+    .cta-box .title{
+      margin-top:20px;
+      color:var(--white);
+    }
+
+    .cta-box .subtitle{
+      margin:22px auto 0;
+      color:rgba(255,255,255,0.6);
+    }
+
+    .cta-box .btn{
+      margin-top:34px;
+    }
+
+    .cta-note{
+      margin-top:18px;
+      color:rgba(255,255,255,0.4);
+      font-size:13px;
+    }
+
+    .faq{
+      max-width:860px;
+      margin:0 auto;
+    }
+
+    details{
+      background:var(--white);
+      border:1px solid rgba(0,0,0,0.05);
+      border-radius:22px;
+      margin-bottom:14px;
+      overflow:hidden;
+    }
+
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding:22px 24px;
+      font-weight:800;
+      color:var(--carbon-dark);
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    summary::-webkit-details-marker{
+      display:none;
+    }
+
+    summary::after{
+      content:"+";
+      color:var(--crimson);
+      font-size:24px;
+      line-height:1;
+    }
+
+    details[open] summary::after{
+      content:"−";
+    }
+
+    details p{
+      padding:0 24px 24px;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:14.5px;
+    }
+
+    footer{
+      background:var(--carbon-dark);
+      color:rgba(255,255,255,0.5);
+      padding:50px 0 34px;
+      font-size:13px;
+    }
+
+    .footer-grid{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:30px;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+      padding-bottom:28px;
+      margin-bottom:24px;
+    }
+
+    .footer-brand{
+      color:white;
+      font-weight:900;
+      font-size:19px;
+      margin-bottom:8px;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:24px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links a:hover{
+      color:var(--crimson);
+    }
+
+    .footer-bottom{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      font-size:12px;
+      color:rgba(255,255,255,0.35);
+    }
+
+    .credit{
+      text-transform:uppercase;
+      letter-spacing:1.5px;
+      font-weight:900;
+      color:rgba(255,255,255,0.7);
+    }
+
+    @media(max-width:1024px){
+      .nav-links{
+        display:none;
+      }
+
+      .hero{
+        min-height:auto;
+        text-align:center;
+        padding-top:132px;
+      }
+
+      .hero-grid,
+      .split{
+        grid-template-columns:1fr;
+        gap:48px;
+      }
+
+      .hero p,
+      .hero h1,
+      .subtitle{
+        margin-left:auto;
+        margin-right:auto;
+      }
+
+      .hero-actions{
+        justify-content:center;
+      }
+
+      .hero-proof{
+        margin-left:auto;
+        margin-right:auto;
+      }
+
+      .portrait-wrap{
+        order:-1;
+      }
+
+      .portrait-card{
+        max-width:330px;
+      }
+
+      .floating-card{
+        position:relative;
+        right:auto;
+        bottom:auto;
+        margin:-34px auto 0;
+        text-align:center;
+      }
+
+      .cards,
+      .steps{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .title{
+        font-size:46px;
+      }
+
+      .hero h1{
+        font-size:48px;
+      }
+
+      .image-box{
+        max-width:420px;
+        margin:0 auto;
+      }
+
+      .image-box::after{
+        display:none;
+      }
+    }
+
+    @media(max-width:768px){
+      .container{
+        padding:0 20px;
+      }
+
+      section{
+        padding:68px 0;
+      }
+
+      header{
+        padding:18px 0;
+      }
+
+      .brand{
+        font-size:16px;
+      }
+
+      .nav-cta{
+        padding:10px 13px;
+        font-size:10px;
+      }
+
+      .hero{
+        padding-top:112px;
+        padding-bottom:68px;
+      }
+
+      .portrait-card{
+        max-width:280px;
+        border-width:7px;
+      }
+
+      .hero h1{
+        font-size:38px;
+        letter-spacing:-1.2px;
+      }
+
+      .title{
+        font-size:34px;
+        letter-spacing:-.8px;
+      }
+
+      .subtitle,
+      .hero p{
+        font-size:15.5px;
+      }
+
+      .btn{
+        width:100%;
+        padding:17px 18px;
+        font-size:11px;
+      }
+
+      .hero-proof,
+      .cards,
+      .steps,
+      .objection-grid{
+        grid-template-columns:1fr;
+      }
+
+      .cta-box{
+        padding:48px 22px;
+        border-radius:30px;
+      }
+
+      .footer-grid,
+      .footer-bottom{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .footer-links{
+        justify-content:center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a href="#inicio" class="brand">Gabriel Cardoso<span> | Nutri</span></a>
+
+        <nav class="nav-links">
+          <a href="#diagnostico">O Gargalo</a>
+          <a href="#metodo">O Método</a>
+          <a href="#sobre">O Atleta</a>
+          <a href="#duvidas">Dúvidas</a>
+        </nav>
+
+        <a href="https://api.whatsapp.com/message/YOJZK436WLRVA1?autoload=1&app_absent=0" target="_blank" class="nav-cta">Agendar Consulta</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-grid">
+
+          <div>
+            <span class="tag tag-light">Nutrição Esportiva & Performance</span>
+
+            <h1>
+              Chega de treinar pesado e não ver <span>resultado no espelho</span>.
+            </h1>
+
+            <p>
+              Estratégia nutricional de alta performance para quem quer emagrecer, ganhar massa magra e explodir o rendimento nos treinos — sem planos impossíveis e com o direcionamento de quem vive a rotina de atleta.
+            </p>
+
+            <div class="hero-actions">
+              <a href="https://api.whatsapp.com/message/YOJZK436WLRVA1?autoload=1&app_absent=0" target="_blank" class="btn">Quero Mudar Meu Corpo</a>
+              <a href="#metodo" class="btn btn-secondary">Conhecer a Metodologia</a>
+            </div>
+
+            <div class="hero-proof">
+              <div class="proof">
+                <strong>Atleta de Crossfit</strong>
+                <span>Estratégias testadas na prática e na ciência</span>
+              </div>
+
+              <div class="proof">
+                <strong>Dieta Estratégica</strong>
+                <span>Ajuste preciso de macros para queimar gordura</span>
+              </div>
+
+              <div class="proof">
+                <strong>Suporte Presencial & Online</strong>
+                <span>Evolução monitorada de onde você estiver</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portrait-wrap">
+            <div class="portrait-card">
+              <img src="expert.jpg" alt="Nutricionista Gabriel Cardoso">
+            </div>
+
+            <div class="floating-card">
+              <strong>Performance Absoluta</strong>
+              <span>Ajustando o combustível certo para acelerar sua definição muscular.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="diagnostico" class="section-soft">
+      <div class="container">
+        <div class="center">
+          <span class="tag">O Ponto de Virada</span>
+          <h2 class="title">Por que sua dedicação na academia <span>não está bastando</span>?</h2>
+          <p class="subtitle">
+            Passar horas treinando e manter uma alimentação aleatória sabota sua evolução. Para mudar a composição corporal, você precisa de sincronia entre estímulo físico e aporte de nutrientes.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card pain-card">
+            <div class="icon">❌</div>
+            <h3>Treina e Não Vê Resultado</h3>
+            <p>
+              Você se esforça no Box ou na musculação, mas o percentual de gordura não abaixa e a definição muscular não aparece.
+            </p>
+          </div>
+
+          <div class="card pain-card">
+            <div class="icon">🪫</div>
+            <h3>Falta de Energia e Força</h3>
+            <p>
+              Termina os WODs esgotado ou sente que sua força estagnou por falta de uma estratégia correta de carboidratos e hidratação.
+            </p>
+          </div>
+
+          <div class="card pain-card">
+            <div class="icon">🔄</div>
+            <h3>Ciclo de Sanfona</h3>
+            <p>
+              Faz dietas restritivas demais que travam o rendimento e geram episódios de compulsão no fim de semana.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="objection">
+      <div class="container">
+        <div class="split">
+          <div class="copy">
+            <span class="tag tag-light">Ciência em Ação</span>
+            <h2 class="title">Seu plano deve acompanhar o ritmo do seu <span>metabolismo</span>.</h2>
+            <p class="subtitle">
+              Um plano eficiente não te força a passar fome, ele calcula meticulosamente o que seu corpo precisa para preservar massa muscular e queimar gordura de forma acelerada.
+            </p>
+
+            <div class="objection-grid">
+              <div class="objection-card">
+                <h3>Planejamento Individual</h3>
+                <p>Macros calculados com precisão cirúrgica para sua rotina de treinos diários.</p>
+              </div>
+
+              <div class="objection-card">
+                <h3>Autonomia Alimentar</h3>
+                <p>Aprenda a fazer substituições sem errar na meta do dia e sem neuras sociais.</p>
+              </div>
+
+              <div class="objection-card">
+                <h3>Suplementação Inteligente</h3>
+                <p>Uso direcionado de compostos validados para melhorar força, foco e recuperação tecidual.</p>
+              </div>
+
+              <div class="objection-card">
+                <h3>Foco em Performance</h3>
+                <p>Estratégias para evoluir cargas e condicionamento, diminuindo o tempo de recuperação.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="image-box">
+            <img src="expert.jpg" alt="Gabriel Cardoso Nutrição Esportiva">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodo" class="section-soft">
+      <div class="container">
+        <div class="center">
+          <span class="tag">Sem Amadorismo</span>
+          <h2 class="title">A metodologia estruturada para o shape dos seus sonhos.</h2>
+          <p class="subtitle">
+            Esqueça fórmulas genéricas de internet. Aqui o processo respeita sua individualidade biológica e sua rotina esportiva.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="card step">
+            <strong>01</strong>
+            <h3>Análise Metabólica</h3>
+            <p>Avaliação profunda da rotina, nível de treino, exames laboratoriais e histórico de peso.</p>
+          </div>
+
+          <div class="card step">
+            <strong>02</strong>
+            <h3>Ajuste Estratégico</h3>
+            <p>Construção da planilha de macros e micros alinhados com seus horários de atividade.</p>
+          </div>
+
+          <div class="card step">
+            <strong>03</strong>
+            <h3>Suporte Prático</h3>
+            <p>Metas claras e ferramentas organizacionais para você manter a consistência fora de casa.</p>
+          </div>
+
+          <div class="card step">
+            <strong>04</strong>
+            <h3>Reavaliação Contínua</h3>
+            <p>Retornos para acompanhamento antropométrico, dobras, bioimpedância e readequação do plano.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container">
+        <div class="split">
+
+          <div class="image-box">
+            <img src="expert.jpg" alt="Gabriel Cardoso Atleta">
+          </div>
+
+          <div class="copy">
+            <span class="tag">O Especialista</span>
+            <h2 class="title">Gabriel Cardoso</h2>
+            <p class="subtitle">
+              Nutricionista com foco em Nutrição Esportiva e atuante na comunidade de alta intensidade. Vive no dia a dia as demandas de um atleta de Crossfit, aliando o embasamento científico à realidade dos boxes e academias.
+            </p>
+
+            <div class="bullets">
+              <div class="bullet"><b>✓</b> Nutricionista graduado com foco exclusivo em esporte e estética.</div>
+              <div class="bullet"><b>✓</b> Atleta ativo focado em treinos de alta intensidade e Crossfit.</div>
+              <div class="bullet"><b>✓</b> Metodologia prática desenhada para queima de gordura e hipertrofia.</div>
+              <div class="bullet"><b>✓</b> Atendimentos focados em consultas Online e Presenciais.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-box">
+          <span class="tag tag-light">Vagas Limitadas</span>
+
+          <h2 class="title">
+            Pronto para ver seus treinos virarem resultados reais?
+          </h2>
+
+          <p class="subtitle">
+            Clique no botão abaixo para acessar nosso canal de atendimento exclusivo no WhatsApp, consultar os horários da agenda e dar o pontapé inicial na sua evolução corporal.
+          </p>
+
+          <a href="https://api.whatsapp.com/message/YOJZK436WLRVA1?autoload=1&app_absent=0" target="_blank" class="btn">Quero Agendar Minha Consulta</a>
+
+          <div class="cta-note">
+            Nutrição Esportiva • Crossfit & Musculação • Definição Corporal
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="duvidas" class="section-soft">
+      <div class="container">
+        <div class="center">
+          <span class="tag">Sem Dúvidas</span>
+          <h2 class="title">Perguntas Frequentes</h2>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Eu preciso treinar Crossfit para fazer a consulta?</summary>
+            <p>Não! A metodologia de nutrição esportiva atende praticantes de qualquer modalidade (musculação, corrida, lutas, beach tennis) que buscam emagrecimento, definição muscular, ganho de força ou melhora estética geral.</p>
+          </details>
+
+          <details>
+            <summary>Como funcionam os atendimentos no formato Online?</summary>
+            <p>As consultas online são completas e realizadas via chamada de vídeo. Enviamos as diretrizes exatas para você tirar suas medidas corporais em casa e construímos o plano com a mesma precisão e suporte do presencial.</p>
+          </details>
+
+          <details>
+            <summary>Vou precisar gastar rios de dinheiro com suplementos?</summary>
+            <p>Absolutamente não. A base do resultado é a comida de verdade. Os suplementos alimentares entram como ferramentas complementares estratégicas e pontuais, prescritos apenas se couberem na sua rotina e orçamento.</p>
+          </details>
+
+          <details>
+            <summary>Como faço para receber a localização e valores?</summary>
+            <p>Basta clicar no botão de agendamento principal. Nossa equipe de suporte comercial passará todos os detalhes de endereço do consultório, tabela de serviços e horários vagos no WhatsApp.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Gabriel Cardoso | Nutrição Esportiva</div>
+          <p>Potencializando seu rendimento físico e esculpindo seus resultados estéticos.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#inicio">Início</a>
+          <a href="#diagnostico">O Gargalo</a>
+          <a href="#metodo">O Método</a>
+          <a href="#consulta">Contato</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Gabriel Cardoso. Todos os direitos reservados.</p>
+        <p class="credit">Feito por DORYAN</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
